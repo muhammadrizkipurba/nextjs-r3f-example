@@ -10,11 +10,18 @@ import { TextSplitter } from '@/components/TextSplitter';
 import HeroScene from '@/components/hero/HeroScene';
 import { Bubbles } from '@/components/hero/Bubbles';
 
+import { useStore } from '@/hooks/useStore';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const Hero = () => {
+  const ready = useStore((state) => state.ready);
+  const isDesktop = useMediaQuery("(min-width: 768px)", true);
 
   useGSAP(() => {
+    if(!ready && isDesktop) return;
+
     const introTimeline = gsap.timeline();
 
     introTimeline
@@ -74,18 +81,18 @@ const Hero = () => {
       y: 20,
       opacity: 0
     })
-  });
-
-
+  }, {dependencies: [ready, isDesktop]});
 
   return (
     <section className='hero opacity-0'>
-      <View className='hero-scene pointer-events-none sticky top-0 z-50 h-screen w-screen hidden md:block'>
-        <HeroScene />
-        <Bubbles speed={1.5} bubbleSize={0.06} repeat={true} count={200} />
-      </View>
+      { isDesktop && 
+        <View className='hero-scene pointer-events-none sticky top-0 z-50 h-screen w-screen hidden md:block'>
+          <HeroScene />
+          <Bubbles speed={1.5} bubbleSize={0.06} repeat={true} count={200} />
+        </View>
+      }
       <div className='grid md:-mt-[100vh] mt-28'>
-        <div className='grid h-screen place-items-center px-5 md:px-0 md:mt-6 lg:mt-[10rem]'>
+        <div className='grid h-screen place-items-center px-5 md:px-0 md:mt-6 lg:mt-[5rem]'>
           <div className='grid auto-rows-min place-items-center text-center'>
             <h1 className='text-8xl md:text-[9rem] lg:text-[13rem] font-black leading-[.8] uppercase text-orange-600'>
               <TextSplitter 
