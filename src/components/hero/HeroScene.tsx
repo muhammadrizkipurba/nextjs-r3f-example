@@ -1,6 +1,6 @@
 "use client";
 
-import { Environment, OrbitControls } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
 import FloatingCan from "@/components/FloatingCan";
 import { useRef } from "react";
 import { Group } from "three";
@@ -10,9 +10,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-type Props = {}
-
-const HeroScene = (props: Props) => {
+const HeroScene = () => {
   const can1Ref = useRef<Group>(null);
   const can2Ref = useRef<Group>(null);
   const can3Ref = useRef<Group>(null);
