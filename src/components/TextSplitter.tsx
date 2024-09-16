@@ -19,8 +19,8 @@ export function TextSplitter({
     const splitText = word.split("");
     return (
       <span
-        className={clsx("split-word", className)}
-        style={{ display: wordDisplayStyle, whiteSpace: "pre" }}
+        className={clsx(`split-word ${wordDisplayStyle === "inline-block" ? "md:inline-block inline-flex" : wordDisplayStyle}`, className)}
+        style={{ whiteSpace: "pre" }}
         key={`${wordIndex}-${word}`}
       >
         {splitText.map((char, charIndex) => {

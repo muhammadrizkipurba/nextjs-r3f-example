@@ -100,6 +100,7 @@ export function Bubbles({
       position={[0, 0, 0]}
       material={material}
       geometry={geometry}
-    ></instancedMesh>
+    >
+    </instancedMesh>
   );
 }

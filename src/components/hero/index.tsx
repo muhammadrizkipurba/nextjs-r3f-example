@@ -80,14 +80,14 @@ const Hero = () => {
 
   return (
     <section className='hero opacity-0'>
-      <View className='hero-scene pointer-events-none sticky top-0 z-50 hidden h-screen w-screen md:block'>
+      <View className='hero-scene pointer-events-none sticky top-0 z-50 h-screen w-screen hidden md:block'>
         <HeroScene />
         <Bubbles speed={1.5} bubbleSize={0.06} repeat={true} count={200} />
       </View>
-      <div className='grid -mt-[100vh]'>
+      <div className='grid md:-mt-[100vh] mt-28'>
         <div className='grid h-screen place-items-center px-5 md:px-0 md:mt-6 lg:mt-[10rem]'>
           <div className='grid auto-rows-min place-items-center text-center'>
-            <h1 className='text-9xl md:text-[9rem] lg:text-[13rem] font-black leading-[.8] uppercase text-orange-600'>
+            <h1 className='text-8xl md:text-[9rem] lg:text-[13rem] font-black leading-[.8] uppercase text-orange-600'>
               <TextSplitter 
                 text="Live Gutsy" 
                 wordDisplayStyle='block' 
@@ -115,12 +115,13 @@ const Hero = () => {
               src="/assets/all-cans-bunched.png"
               height={700}
               width={700}
-              className='h-auto w-full md:hidden'
+              className='h-[450px] w-auto -ml-6 md:h-auto md:ml-0 md:w-full md:hidden'
             />
             <div>
               <h2 className='text-side-heading text-4xl md:text-5xl lg:text-8xl font-bold uppercase text-sky-950 text-balance'>
                 <TextSplitter 
                   text="Try all five flavors"
+                  wordDisplayStyle='inline-block'
                 />
               </h2>
               <p className='text-side-body mt-4 max-w-xl text-balance text-lg lg:text-2xl font-normal text-sky-950'>
