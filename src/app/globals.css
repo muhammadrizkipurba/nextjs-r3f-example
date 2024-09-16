@@ -5,6 +5,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* --font-catch-display: "ClashDisplay-Variable", sans-serif; */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,9 +16,13 @@
 }
 
 body {
-  color: var(--foreground);
+  color: #171717;
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-clash-display);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-chillax);
 }
 
 @layer utilities {

@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Header from "@/components/Header";
+import { Providers } from "./Providers";
+import ViewCanvas from "@/components/ViewCanvas";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
+const clashDisplay = localFont({
+  src: "../../public/fonts/ClashDisplay-Variable.woff2",
+  display: 'swap',
+  variable: "--font-clash-display",
   weight: "100 900",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
+
+const chillax = localFont({
+  src: "../../public/fonts/Chillax-Variable.woff2",
+  display: 'swap',
+  variable: "--font-chillax",
   weight: "100 900",
 });
 
@@ -24,11 +30,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${clashDisplay.variable} ${chillax.variable} overflow-x-hidden bg-[#FDE047]`}>
+        <Providers>
+          <Header />
+          <main>
+            {children}
+            <ViewCanvas />
+          </main>
+        </Providers>
       </body>
     </html>
   );
