@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import * as THREE from "three";
-import { Cloud, Clouds, Environment, OrbitControls, Text } from "@react-three/drei";
+import { Cloud, Clouds, Environment, Text } from "@react-three/drei";
 
 import FloatingCan from "@/components/FloatingCan";
 import { SodaCanProps } from "@/components/SodaCan";
@@ -191,8 +191,6 @@ const SkyDiveScene = ({
       <group ref={wordsRef}>
         {sentence && <ThreeText sentence={sentence} color="#F97315" />}
       </group>
-
-      {/* <OrbitControls /> */}
 
       {/* Lights */}
       <ambientLight intensity={2} color="#9DDEFA" />
